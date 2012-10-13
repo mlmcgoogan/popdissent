@@ -1,9 +1,13 @@
 var fs = require('fs');
 var http = require('http');
+var qs = require('querystring');
+var formatter = require('./htmlFormatter.js');
+var model = require('./model.js');
+
 var requestListener = function(req, res) {
 	
-	if (req.url == '/') {
-		fs.readFile(__dirname + '/content/index.html', function(err, data) {
+	if (req.url == '/addtopic') {
+		fs.readFile(__dirname + '/content/add.html', function(err, data) {
 			if (err) {
 				res.writeHead(400);
 				res.end(JSON.stringify(err));
@@ -14,6 +18,24 @@ var requestListener = function(req, res) {
 			res.end(data);
 		});
 	}
+	else if (req.url == '/addtopic_confirm') {
+		if (req.method == 'POST') {
+			var body = '';
+			req.on('data', function(data) {
+				body += data;
+				if (body.length > 10000) {
+					req.connection.destroy();
+				}
+			});
+
+			req.on('end', function() {
+				var post = qs.parse(body);
+
+				model.addTopic(post.title, post.desc, 'Matthew McGoogan');
+			})
+		}
+	}
+
 	else {
 		res.writeHead(404);
 		res.end("File not found.");
