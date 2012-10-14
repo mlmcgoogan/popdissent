@@ -38,3 +38,15 @@ exports.addTopic = function( title, desc, author ) {
 		}
 	});
 }
+
+exports.allTopics = function(callback) {
+	topicsCollection.find().toArray(function(err, items) {
+		if (err) {
+			console.log('Error finding topics: ' + err.message);
+			callback(err, null);
+		}
+		else {
+			callback(null, items);
+		}
+	});
+}

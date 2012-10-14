@@ -1,13 +1,13 @@
-var fs = require('fs');
+global.fs = require('fs');
 var http = require('http');
 var qs = require('querystring');
 var formatter = require('./htmlFormatter.js');
-var model = require('./model.js');
+global.model = require('./model.js');
 
 var requestListener = function(req, res) {
 	
 	if (req.url == '/addtopic') {
-		fs.readFile(__dirname + '/content/add.html', function(err, data) {
+		global.fs.readFile(__dirname + '/content/add.html', function(err, data) {
 			if (err) {
 				res.writeHead(400);
 				res.end(JSON.stringify(err));
@@ -34,6 +34,12 @@ var requestListener = function(req, res) {
 				model.addTopic(post.title, post.desc, 'Matthew McGoogan');
 			})
 		}
+	}
+	else if (req.url == '/topics') {
+		formatter.topicsPage(function(htmlStr) {
+			res.writeHead(200);
+			res.end(htmlStr);
+		});
 	}
 
 	else {
