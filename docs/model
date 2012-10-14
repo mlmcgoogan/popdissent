@@ -1,0 +1,51 @@
+User
+	username
+	email
+	firstname
+	lastname
+	affil
+	creationdate
+
+
+
+Topic
+	title
+	desc
+	author
+	creationdate
+	publicdate
+
+	arguments (LOCAL)
+	reports (LOCAL)
+
+
+Argument
+	content
+	sources
+	votes
+	creationdate
+
+	user
+	topic
+	comments (LOCAL)
+	reports (LOCAL)
+
+
+
+Comment
+	content
+	sources
+	creationdate
+
+	user
+	reports (LOCAL)
+
+
+
+Report
+	type
+	content
+	creationdate
+
+	user
+	comments (LOCAL)
