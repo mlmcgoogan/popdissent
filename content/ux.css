@@ -1,0 +1,24 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+
+.arg {
+	margin-top: 100px;
+}
+
+.editbox {
+	padding: 10px;
+	width: 500px;
+	background-color: #ddd;
+	position: absolute;
+	right: 500px;
+	top: 400px;
+}
+
+.editfield {
+	padding: 5px;
+	resize: none;
+	width: 490px;
+	height: 350px;
+}

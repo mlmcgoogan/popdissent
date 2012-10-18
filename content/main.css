@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#header h1 {
+	margin-bottom: 0;
+	font-size: 2.3em;
+}
+
+#header h3 {
+	margin-top: 0;
+	font-size: 1.0em;
+}
+
+
+#proColumn {
+	float: left;
+	width: 48%;
+	padding-left: 5px;
+}
+
+#oppColumn {
+	float: right;
+	width: 48%;
+	border-left: 1px solid #000;
+	padding-left: 5px;
+	height: 100px;
+}
